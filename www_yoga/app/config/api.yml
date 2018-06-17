@@ -1,0 +1,270 @@
+parameters:
+  router:
+    wechat:
+      controllerAction: WeChatController@serve
+      method: any
+      isAuth: 0
+    wechat/login:
+      controllerAction: WeChatController@login
+      method: any
+      isAuth: 0
+
+    api/user/setMenu:
+      controllerAction: UserController@setMenu
+      method: any
+      isAuth: 0
+
+    api/login:
+      controllerAction: UserController@login
+      method: get
+      isAuth: 0
+
+    api/user/sendCode:
+      controllerAction: UserController@sendCode
+      method: post
+      isAuth: 0
+      params:
+        phoneNumber:
+          type: string
+          require: 1
+
+    api/user/logout:
+      controllerAction: UserController@logout
+      method: post
+      isAuth: 0
+
+    api/user/register:
+      controllerAction: UserController@register
+      method: post
+      isAuth: 0
+      params:
+        phoneNumber:
+          type: string
+          require: 1
+        userType:
+          type: int
+          require: 1
+        code:
+          type: int
+          require: 1
+
+    api/teacher/home:
+      controllerAction: TeacherController@home
+      method: post
+      isAuth: 1
+
+    api/campaign/find:
+      controllerAction: CampaignController@find
+      method: post
+      isAuth: 0
+
+    api/campaign/getMyCampaignList:
+      controllerAction: CampaignController@getMyCampaignList
+      method: post
+      isAuth: 1
+      params:
+        status:
+          type: int
+
+    api/campaign/index:
+      controllerAction: CampaignController@index
+      method: post
+      isAuth: 1
+      params:
+        page:
+          type: int
+        status:
+          type: int
+
+    api/campaign/detail:
+      controllerAction: CampaignController@detail
+      method: post
+      isAuth: 0
+      params:
+        CampaignId:
+          type: string
+          require: 1
+
+    api/campaign/doCampaign:
+      controllerAction: CampaignController@doCampaign
+      method: post
+      isAuth: 1
+
+    api/campaign/publish:
+      controllerAction: CampaignController@publish
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+        Status:
+          type: number
+          require: 1
+
+    api/campaign/participateCampaignIn:
+      controllerAction: CampaignController@participateCampaignIn
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+
+    api/campaign/participate:
+      controllerAction: CampaignController@participate
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+
+    api/campaign/baseIn:
+      controllerAction: CampaignController@campaignBaseIn
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+
+    api/campaign/getShareConf:
+          controllerAction: CampaignController@getShareConf
+          method: post
+          isAuth: 1
+          params:
+            campaignId:
+              type: string
+              require: 0
+
+    api/campaign/receiveShare:
+              controllerAction: CampaignController@receiveShare
+              method: post
+              isAuth: 1
+              params:
+                campaignId:
+                  type: string
+                  require: 1
+                shareFromUserId:
+                 type: string
+                 require: 1
+                campaignShareId:
+                 type: string
+                 require: 0
+                campaignShareUniqueId:
+                 type: string
+                 require: 0
+
+
+
+    api/campaign/shareDefaultIn:
+      controllerAction: CampaignController@shareDefaultIn
+      method: post
+      isAuth: 1
+      params:
+        campaignId:
+          type: string
+          require: 1
+
+    api/campaign/doShare:
+      controllerAction: CampaignController@doShare
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+        shareMethod:
+          type: string
+          require: 1
+        shareUrl:
+          type: string
+          require: 1
+
+    api/campaign/feedback:
+      controllerAction: CampaignController@feedback
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+
+    api/campaign/shareIn:
+      controllerAction: CampaignController@shareIn
+      method: post
+      isAuth: 0
+      params:
+        Id:
+          type: string
+          require: 1
+
+    api/campaign/pageShare:
+      controllerAction: CampaignController@pageShare
+      method: get
+      isAuth: 0
+      params:
+        Id:
+          type: string
+          require: 1
+
+    api/discountCode/index:
+      controllerAction: DiscountCodeController@index
+      method: post
+      isAuth: 1
+
+    api/discountCode/create:
+      controllerAction: DiscountCodeController@create
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+         type: string
+         require: 1
+
+    api/discountCode/useCode:
+      controllerAction: DiscountCodeController@useCode
+      method: post
+      isAuth: 1
+      params:
+        CampaignId:
+          type: string
+          require: 1
+        DiscountCode:
+          type: string
+          require: 1
+
+    api/file/upload:
+      controllerAction: FileController@upload
+      method: any
+      isAuth: 1
+      params:
+        FileType:
+          type: string
+          require: 1
+
+    api/qrcode/show:
+      controllerAction: QrCodeController@show
+      method: any
+      isAuth: 0
+      params:
+        url:
+          type: string
+          require: 1
+
+    api/pay/do:
+      controllerAction: PayController@doPay
+      method: any
+      isAuth: 1
+      params:
+        OrderNo:
+          type: string
+          require: 1
+
+    api/pay/confirm :
+      controllerAction: PayController@payConfirm
+      method: any
+      isAuth: 0
+
+

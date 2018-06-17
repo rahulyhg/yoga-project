@@ -1,0 +1,5 @@
+parameters:
+  app:
+    protocol: http://
+    domain:
+      main: www.hcforce.com/

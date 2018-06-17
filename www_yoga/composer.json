@@ -1,0 +1,53 @@
+{
+    "name": "laravel/lumen",
+    "description": "The Laravel Lumen Framework.",
+    "keywords": ["framework", "laravel", "lumen"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "eventviva/php-image-resize":"*",
+        "php": ">=5.6.4",
+        "laravel/lumen-framework": "5.5.*",
+        "vlucas/phpdotenv": "~2.2",
+        "symfony/config": "*",
+        "symfony/dependency-injection": "*",
+        "symfony/yaml": "*",
+        "overtrue/laravel-wechat": "~4.0",
+        "endroid/qr-code": "^3.2",
+        "mikehaertl/phpwkhtmltopdf": "^2.3",
+        "yonghua4413/ali-sms": "^0.05.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "phpunit/phpunit": "~6.0",
+        "mockery/mockery": "~0.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": [
+            "app/Support/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/",
+            "database/"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "optimize-autoloader": true,
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
+        }
+    }
+}
